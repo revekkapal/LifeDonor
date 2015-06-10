@@ -2,14 +2,11 @@
 bin/
 gen/
 
-# OSX files
-.DS_Store
-
-# Android Studio
-*.iml
-.idea
-/build
 .gradle
-
 /local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
 /captures
+*.iml
