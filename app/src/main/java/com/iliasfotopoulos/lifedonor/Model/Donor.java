@@ -1,10 +1,13 @@
 package com.iliasfotopoulos.lifedonor.Model;
 
+import com.parse.ParseClassName;
+
 import java.util.Date;
 
 /**
  * Created by ilias on 10/6/2015.
  */
+@ParseClassName(User.CLASS_KEY)
 public class Donor extends User
 {
 //    public static final String ROLE_KEY = "role";

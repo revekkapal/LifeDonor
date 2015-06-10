@@ -1,9 +1,12 @@
 package com.iliasfotopoulos.lifedonor;
 
 import android.app.Application;
+
+import com.iliasfotopoulos.lifedonor.Model.User;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 import com.parse.SignUpCallback;
 
 /**
@@ -18,6 +21,10 @@ public class LifeDonor extends Application
     {
 
         instance = this;
+
+        //Parse Subclasses Register
+        ParseObject.registerSubclass(User.class);
+
 
         Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE);
         Parse.enableLocalDatastore(getApplicationContext());
