@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Life Donor</string>
+    <string name="loading_message">Loading</string>
     <string name="parse_app_id">tWIrxFB55lfgA3oT5WZt8vHJ48pnyu2hvjbYNVNj</string>
     <string name="parse_client_id">F0kRpeNowNHvPlAwLEKyhQVn8mkk5JmxKjaXPfoN</string>
 </resources>
