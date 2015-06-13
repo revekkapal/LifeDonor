@@ -1,5 +1,6 @@
 package com.iliasfotopoulos.lifedonor.Model;
 
+import com.iliasfotopoulos.lifedonor.R;
 import com.parse.ParseUser;
 import com.parse.ParseClassName;
 
@@ -7,10 +8,10 @@ import com.parse.ParseClassName;
  * Created by ilias on 10/6/2015.
  */
 
-@ParseClassName(User.CLASS_KEY)
+@ParseClassName("_User")
 public class User extends ParseUser
 {
-    public static final String CLASS_KEY = "_User";
+    public static final String ROLE_KEY = "role";
     public static final String CITY_KEY = "city";
     public static final String STREET_KEY = "street";
     public static final String ZIP_CODE_KEY = "zipCode";
@@ -20,6 +21,7 @@ public class User extends ParseUser
     public User()
     {
         super();
+        this.setRole("General User");
     }
 
     public static User getCurrentUser()
@@ -48,6 +50,11 @@ public class User extends ParseUser
         return getInt(PHONE_KEY);
     }
 
+    public String getRole()
+    {
+        return getString(ROLE_KEY);
+    }
+
 
     // Mutators
     public void setCity(String aCity)
@@ -68,6 +75,11 @@ public class User extends ParseUser
     public void setPhone(int aPhone)
     {
         put(PHONE_KEY,aPhone);
+    }
+
+    public void setRole(String aRole)
+    {
+        put(ROLE_KEY, aRole);
     }
 
     // Default ParseUser Info

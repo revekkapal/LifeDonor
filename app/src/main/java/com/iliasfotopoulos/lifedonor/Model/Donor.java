@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by ilias on 10/6/2015.
  */
-@ParseClassName(User.CLASS_KEY)
+@ParseClassName("Donor")
 public class Donor extends User
 {
 //    public static final String ROLE_KEY = "role";
@@ -21,6 +21,7 @@ public class Donor extends User
     public Donor()
     {
         super();
+        this.setRole("Donor");
     }
 
     // Accessors
