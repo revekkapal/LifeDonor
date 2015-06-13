@@ -8,5 +8,6 @@ public interface BaseView
     public void showProgressBar();
     public void hideProgressBar();
     public void showDialog(String message);
+    public boolean isDestroyed();
 
 }
