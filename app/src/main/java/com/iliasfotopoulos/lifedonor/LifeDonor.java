@@ -1,6 +1,7 @@
 package com.iliasfotopoulos.lifedonor;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.iliasfotopoulos.lifedonor.Model.Donor;
 import com.iliasfotopoulos.lifedonor.Model.User;
@@ -16,11 +17,12 @@ import com.parse.SignUpCallback;
 public class LifeDonor extends Application
 {
     private static LifeDonor instance;
+    private static Context mContext;
 
     @Override
     public void onCreate()
     {
-
+        mContext = this;
         instance = this;
 
         //Parse Subclasses Register
@@ -39,6 +41,11 @@ public class LifeDonor extends Application
     public LifeDonor getInstance()
     {
         return instance;
+    }
+
+    public static Context getContext()
+    {
+        return mContext;
     }
 
 }

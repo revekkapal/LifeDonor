@@ -6,4 +6,10 @@ package com.iliasfotopoulos.lifedonor.View;
 public interface LoginView extends BaseView
 {
     public void navigateToHome();
+
+    public void setUsernameFocus();
+    public void setPasswordFocus();
+
+    public void setUsernameError(String anError);
+    public void setPasswordError(String anError);
 }

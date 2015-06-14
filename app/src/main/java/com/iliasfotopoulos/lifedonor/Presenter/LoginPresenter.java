@@ -6,4 +6,7 @@ package com.iliasfotopoulos.lifedonor.Presenter;
 public interface LoginPresenter extends BasePresenter
 {
     public void authenticateUser(String username, String password);
+
+    public void onUsernameError(String anError);
+    public void onPasswordError(String anError);
 }

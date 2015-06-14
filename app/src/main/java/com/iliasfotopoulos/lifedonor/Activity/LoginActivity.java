@@ -62,35 +62,7 @@ public class LoginActivity extends BaseActivity implements LoginView
         String email = mEmailView.getText().toString().trim();
         String password = mPasswordView.getText().toString().trim();
 
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password))
-        {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            loginPresenter.authenticateUser(email, password);
-        }
+        loginPresenter.authenticateUser(email, password);
 
     }
 
@@ -99,22 +71,31 @@ public class LoginActivity extends BaseActivity implements LoginView
 
     }
 
+    public void setUsernameFocus()
+    {
+        mEmailView.requestFocus();
+    }
+
+    public void setPasswordFocus()
+    {
+        mPasswordView.requestFocus();
+    }
+
+
+    public void setUsernameError(String anError)
+    {
+        mEmailView.setError(anError);
+    }
+
+    public void setPasswordError(String anError)
+    {
+        mPasswordView.setError(anError);
+    }
+
     private void resetErrors()
     {
         mEmailView.setError(null);
         mPasswordView.setError(null);
-    }
-
-    private boolean isEmailValid(String email)
-    {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password)
-    {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /*
