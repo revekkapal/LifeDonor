@@ -1,4 +1,4 @@
-package com.iliasfotopoulos.lifedonor.Avitivity;
+package com.iliasfotopoulos.lifedonor.Activity;
 
 /**
  * Created by ilias on 10/6/2015.
@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Build;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.iliasfotopoulos.lifedonor.R;
