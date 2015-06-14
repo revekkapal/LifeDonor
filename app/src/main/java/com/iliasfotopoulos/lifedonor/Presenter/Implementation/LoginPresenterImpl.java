@@ -1,6 +1,7 @@
 package com.iliasfotopoulos.lifedonor.Presenter.Implementation;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.iliasfotopoulos.lifedonor.Presenter.LoginPresenter;
 import com.iliasfotopoulos.lifedonor.View.LoginView;
@@ -13,6 +14,7 @@ import com.parse.ParseUser;
  */
 public class LoginPresenterImpl implements LoginPresenter
 {
+    private static final String TAG = "LoginPresenter";
     private LoginView view;
 
     public LoginPresenterImpl(LoginView loginView)
@@ -20,7 +22,7 @@ public class LoginPresenterImpl implements LoginPresenter
         this.view = loginView;
     }
 
-    public void validateCredentials(String username, String password)
+    public void authenticateUser(final String username, String password)
     {
         view.showProgressBar();
         // I could have used my User class that extends ParseUser to be decoupled from Parse
@@ -28,18 +30,29 @@ public class LoginPresenterImpl implements LoginPresenter
         {
             public void done(ParseUser user, ParseException e)
             {
+                if (view.isDestroyed())
+                {
+                    Log.d(TAG,"View has been destroyed!");
+                    return;
+                }
+
+                view.hideProgressBar();
                 if (user != null)
                 {
-                    // Hooray! The user is logged in.
+                    Log.d(TAG,"User: "+username+" logged in!");
+                    onSuccess();
                 }
                 else
                 {
-                    // Signup failed. Look at the ParseException to see what happened.
+                    if (e !=null && e.getMessage() != null)
+                    {
+                        Log.d(TAG,"Login failed: "+ e.toString());
+                        view.showDialog(e.getMessage());
+                    }
                 }
             }
         });
     }
-
     public void onSuccess()
     {
         view.navigateToHome();

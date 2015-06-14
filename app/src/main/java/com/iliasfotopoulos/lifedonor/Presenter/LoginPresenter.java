@@ -5,5 +5,5 @@ package com.iliasfotopoulos.lifedonor.Presenter;
  */
 public interface LoginPresenter extends BasePresenter
 {
-    public void validateCredentials(String username, String password);
+    public void authenticateUser(String username, String password);
 }
