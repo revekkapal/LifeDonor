@@ -82,6 +82,7 @@ public class LoginPresenterImpl implements LoginPresenter
     public void onUsernameError(String anError)
     {
         view.setUsernameError(anError);
+        view.setUsernameFocus();
         view.hideProgressBar();
         cancel = true;
     }
@@ -89,6 +90,7 @@ public class LoginPresenterImpl implements LoginPresenter
     public void onPasswordError(String anError)
     {
         view.setPasswordError(anError);
+        view.setPasswordFocus();
         view.hideProgressBar();
         cancel = true;
     }
