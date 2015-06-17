@@ -3,6 +3,7 @@ package com.iliasfotopoulos.lifedonor.Presenter.Implementation;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 
 import com.iliasfotopoulos.lifedonor.LifeDonor;
 import com.iliasfotopoulos.lifedonor.Presenter.LoginPresenter;
@@ -11,6 +12,7 @@ import com.iliasfotopoulos.lifedonor.View.LoginView;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+
 
 /**
  * Created by ilias on 13/6/2015.
@@ -102,14 +104,12 @@ public class LoginPresenterImpl implements LoginPresenter
 
     private boolean isEmailValid(String email)
     {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     private boolean isPasswordValid(String password)
     {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 6;
     }
 
 
